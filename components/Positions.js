@@ -72,8 +72,15 @@ export default class Positions extends React.Component{
             return map
         })
         this.setState({maps})
+    }
 
-
+    goToMaps = async () => {
+        if(!this.state.maps.some(map => map.picked === true))
+        {
+            alert('Wybierz jakąś pozycje')
+            return
+        }
+        this.props.navigation.navigate("Maps", {maps: this.state.maps})
     }
 
     componentDidMount = async () => {
@@ -95,7 +102,7 @@ export default class Positions extends React.Component{
                 </View>
                 <View style={styles.buttonsContainer}>
                     <View style={{flex: 4, display: 'flex' , alignItems: 'center', justifyContent: 'center'}}>
-                        <Button text='Przejdź do mapy' press={() => this.props.navigation.navigate("Maps", {maps: this.state.maps})}/>
+                        <Button text='Przejdź do mapy' press={() => this.goToMaps()}/>
                     </View>
                     <View style={{ flex: 1, display: 'flex' , alignItems: 'center', justifyContent: 'center', width: '100%'}}>
                        <Switch onValueChange={this.setPickAll} value={this.state.allPicked}/>

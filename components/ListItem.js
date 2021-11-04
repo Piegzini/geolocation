@@ -7,7 +7,6 @@ import Button from './Button.js'
 class ListItem extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.picked)
     }
 
 
