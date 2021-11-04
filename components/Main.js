@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native'
 import * as Font from "expo-font";
 import Button from './Button.js'
 
@@ -26,7 +26,7 @@ export default class Main extends React.Component{
                     <View style={styles.Header}>
                         <Text style={{fontSize: 40, fontFamily: 'Lato', color: '#fff'}}>GeoApp</Text>
                         <Text style={{fontSize: 20, fontFamily: 'Lato', color: '#fff'}}>Find and save your location</Text>
-                    </View> : null
+                    </View> :  <ActivityIndicator size="small" color="#ff0000" />
                 }
                 <View style={styles.ButtonWrapper}>
                     <Button text='Start'  press={() => this.props.navigation.navigate("Positions")} />
